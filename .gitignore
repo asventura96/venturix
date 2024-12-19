@@ -1,0 +1,57 @@
+# .gitignore
+
+# Ambiente de desenvolvimento
+.env
+
+# Arquivos relacionados ao Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.swp
+
+# Arquivos relacionados ao Django
+*.log
+*.pot
+*.pyc
+*.pyo
+db.sqlite3
+/media/
+staticfiles/
+
+# Ignorar arquivos de migração, exceto o __init__.py
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Logs
+logs/
+*.log
+*.out
+*.err
+
+# Caches
+*.cache
+*.bak
+*.swp
+*.swo
+
+# Arquivos de configuração do editor
+.vscode/
+.idea/
+
+# Arquivos de ambiente virtual
+venv/
+.venv/
+
+# Arquivos de cobertura de testes
+.coverage
+htmlcov/
+
+# Arquivos de build
+build/
+dist/
+*.egg-info/
+
+# Arquivos temporários do sistema operacional
+.DS_Store
+Thumbs.db
