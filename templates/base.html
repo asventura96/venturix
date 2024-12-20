@@ -7,14 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}VENTURIX{% endblock %}</title>
     {% load static %}
-    <!-- Fontes e estilos -->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
-    <link rel="stylesheet" href="{% static 'select2/css/select2.min.css' %}">
-    <!-- CSS do Bootstrap -->
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-    <!-- CSS do Bootstrap Daterangepicker -->
-    <link rel="stylesheet" href="{% static 'daterangepicker/css/daterangepicker.css' %}">
+    <!-- Fontes e estilos CSS -->
+    {% include 'css_includes.html' %}
     <!-- Meta tags de segurança -->
     {% include 'csp_policy.html' %}
 </head>
@@ -58,13 +52,8 @@
     <footer>
         <p>&copy; 2025 VENTURIX</p>
     </footer>
-    <!-- Scripts no final para melhor performance -->
-    <script src="{% static 'js/jquery.js' %}"></script>
-    <script src="{% static 'js/moment.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'daterangepicker/js/daterangepicker.js' %}"></script>
-    <script src="{% static 'select2/js/select2.min.js' %}"></script>
-    <script src="{% static 'js/scripts.js' %}"></script>
+    <!-- Scripts JS -->
+    {% include 'js_includes.html' %}
 </body>
 {% csrf_token %}
 </html>
