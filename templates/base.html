@@ -1,0 +1,70 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}VENTURIX{% endblock %}</title>
+    {% load static %}
+    <!-- Fontes e estilos -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'select2/css/select2.min.css' %}">
+    <!-- CSS do Bootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <!-- CSS do Bootstrap Daterangepicker -->
+    <link rel="stylesheet" href="{% static 'daterangepicker/css/daterangepicker.css' %}">
+    <!-- Meta tags de segurança -->
+    {% include 'csp_policy.html' %}
+</head>
+<body>
+    <!-- Cabeçalho Comum -->
+    <header>
+        <div class="menu-container">
+            <h1 class="logo">VENTURIX</h1>
+            <nav class="menu">
+                <ul>
+                    <li class="{% if request.path == '/' %}active{% endif %}">
+                        <a href="/" aria-label="Home"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                    </li>
+                    {% if request.user.is_staff %}
+                        <li class="{% if request.path == '/admin' %}active{% endif %}">
+                            <a href="/admin" aria-label="Painel Administrativo"><i class="fa fa-gear"></i>Administração</a>
+                        </li>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                        <li class="{% if request.path == '/alunos/' %}active{% endif %}">
+                            <a href="/alunos" aria-label="Alunos"><i class="fa fa-user-graduate"></i>Alunos</a>
+                        </li>
+                        <li class="{% if request.path == '/certificacao/' %}active{% endif %}">
+                            <a href="/certificacao" aria-label="Certificações"><i class="fa fa-graduation-cap"></i>Certificações</a>
+                        </li>
+                        <li class="{% if request.path == '/centroProva/' %}active{% endif %}">
+                            <a href="/centroProva" aria-label="Centro de Provas"><i class="fa fa-certificate"></i>Centro de Provas</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Container principal para conteúdo específico de cada página -->
+    <div class="container">
+        {% block content %}
+        <!-- Aqui vai o conteúdo específico de cada página -->
+        {% endblock %}
+    </div>
+    <!-- Rodapé Comum -->
+    <footer>
+        <p>&copy; 2025 VENTURIX</p>
+    </footer>
+    <!-- Scripts no final para melhor performance -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/moment.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'daterangepicker/js/daterangepicker.js' %}"></script>
+    <script src="{% static 'select2/js/select2.min.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+{% csrf_token %}
+</html>
