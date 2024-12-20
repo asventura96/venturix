@@ -1,0 +1,22 @@
+<!-- templates/dashboard.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}VENTURIX{% endblock %}
+
+{% block content %}
+<h2 class="page-title">VENTURIX</h2>
+
+{% if request.user.is_authenticated %}
+    <p>Você está logado como <strong>{{ request.user.username }}</strong>.</p>
+
+    <!-- Formulário de logout -->
+    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn-exit">Logout</button>
+    </form>
+{% else %}
+    <p>Você não está autenticado. <a href="{% url 'login' %}">Login</a></p>
+{% endif %}
+
+{% endblock %}
