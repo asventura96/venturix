@@ -126,9 +126,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Configuração de login/logout
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'login'
+#LOGIN_URL = 'login'
+#LOGIN_REDIRECT_URL = 'home'
+#LOGOUT_REDIRECT_URL = 'login'
 
 # Configurações de logging
 LOGGING = {

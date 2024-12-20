@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Apps Instalados</title>
+</head>
+<body>
+    <h2>Lista de Apps Instalados</h2>
+    <ul>
+        {% for app in installed_apps %}
+            <li>{{ app.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

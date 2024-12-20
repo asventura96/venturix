@@ -24,5 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     #URLs dos apps
-    path('/accounts', include('accounts.urls')),
+    path('accounts/', include('accounts.urls')),
 ]

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Usuários</title>
+</head>
+<body>
+    <h2>Lista de Usuários</h2>
+    <ul>
+        {% for user in object_list %}
+            <li>{{ user.username }} - <a href="{% url 'user_edit' user.pk %}">Editar</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
