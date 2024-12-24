@@ -8,19 +8,15 @@
     <title>VENTURIX - Login</title>
     {% load static %}
     <!-- Fontes e estilos -->
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
-    <link rel="stylesheet" href="{% static 'css/buttons.css' %}">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+    {% include 'css_includes.html' %}
     <!-- Meta tags de segurança -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://antebellum.com.br; script-src 'self' https://cdnjs.cloudflare.com">
+    {% include 'csp_policy.html' %}
 </head>
 <body class="login-page">
     <div class="login-container">
         <!-- Adicionando a imagem de destaque -->
         <div class="login-image">
-            <img src="#" alt="Logo VENTURIX">
+            <img src="{% static 'images/venturix_logo.png' %}" alt="Logo VENTURIX">
         </div>
 
         <div class="login-box">
